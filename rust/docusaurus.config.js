@@ -9,7 +9,7 @@ const config = {
    //*****TotemTemplate*****
   title: 'Insect Totem',
    //*****TotemTemplate*****
-  tagline: 'Rust 筆記',
+  tagline: 'Rust 學習筆記',
   favicon: 'img/70_70.jpg',
 
   // Set the production url of your site here
@@ -93,10 +93,10 @@ const config = {
             sidebarId: 'totem_sidebar', //ref sidebar.js
             position: 'left',
                //*****TotemTemplate*****
-            label: 'Banner-----程式技術文章----------',
+            label: 'Rust 學習筆記',
           },
           // {to: '/docs/Graphics/docs-map', label: 'Graphics', position: 'left'},
-	      {to: '/blog', label: 'Banner-----Blog----------', position: 'left'},
+	      {to: '/blog', label: 'Blog', position: 'left'},
           //{
           //  href: 'https://chichunhuang.github.io/slash/blog',
           //  label: 'GitHub',
@@ -112,9 +112,9 @@ const config = {
             items: [
               {
                    //*****TotemTemplate*****
-                label: '程式技術文章',
+                label: 'Python 學習筆記',
                    //*****TotemTemplate*****
-                to: '/docs/docs-map',
+                to: 'https://insect-totem.net/docs/docs-map',
               },
              // {
               //  label: '我的插圖',
