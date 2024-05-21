@@ -43,8 +43,12 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+      
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateTime: false,// not works, show wrong date
+          
+          //when click banner link, sidebar is collapsed
+          sidebarCollapsed:true,
           
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -95,8 +99,11 @@ const config = {
                //*****TotemTemplate*****
             label: 'Rust 學習筆記',
           },
+
           // {to: '/docs/Graphics/docs-map', label: 'Graphics', position: 'left'},
+          
 	      {to: '/blog', label: 'Blog', position: 'left'},
+	      
           //{
           //  href: 'https://chichunhuang.github.io/slash/blog',
           //  label: 'GitHub',
