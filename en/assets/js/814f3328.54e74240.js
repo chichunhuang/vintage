@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktotem=self.webpackChunktotem||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"\u6606\u87f2\u5716\u9a30\u91cd\u65b0\u4e0a\u67b6","permalink":"/rust/en/blog/insect-totem-is-coming"}]}')}}]);

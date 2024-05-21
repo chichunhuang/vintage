@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://rust.insect-totem.net/rust/en/blog</id>
+    <title>Insect Totem Blog</title>
+    <updated>2023-12-03T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://rust.insect-totem.net/rust/en/blog"/>
+    <subtitle>Insect Totem Blog</subtitle>
+    <icon>https://rust.insect-totem.net/rust/en/img/70_70.jpg</icon>
+    <entry>
+        <title type="html"><![CDATA[昆蟲圖騰重新上架]]></title>
+        <id>https://rust.insect-totem.net/rust/en/blog/insect-totem-is-coming</id>
+        <link href="https://rust.insect-totem.net/rust/en/blog/insect-totem-is-coming"/>
+        <updated>2023-12-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[* 以前註冊的是 www.insect-totem.tw]]></summary>
+        <content type="html"><![CDATA[<ul><li>以前註冊的是 <a href="http://www.insect-totem.tw" target="_blank" rel="noopener noreferrer">www.insect-totem.tw</a></li><li>現在改註冊 <a href="http://www.insect-totem.net" target="_blank" rel="noopener noreferrer">www.insect-totem.net</a><ul><li>由生物轉生態，再由生態轉行為生態，再到生物電腦模擬。現在在幫忙開發與醫療/醫學/醫研相關的系統。多了些資訊相關筆記所以改 net。</li></ul></li></ul>]]></content>
+        <author>
+            <name>Insect Totem</name>
+            <uri>https://github.com/chichunhuang</uri>
+        </author>
+        <category label="Insect-Totem" term="Insect-Totem"/>
+    </entry>
+</feed>

@@ -1,2 +1,0 @@
-# vintage
-Rust Learning Handouts

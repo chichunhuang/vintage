@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktotem=self.webpackChunktotem||[]).push([[5028],{4834:t=>{t.exports=JSON.parse('{"label":"Insect-Totem","permalink":"/rust/en/blog/tags/insect-totem","allTagsPath":"/rust/en/blog/tags","count":1}')}}]);
