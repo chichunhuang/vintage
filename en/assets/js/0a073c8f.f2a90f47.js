@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktotem=self.webpackChunktotem||[]).push([[5897],{9902:e=>{e.exports=JSON.parse('{"permalink":"/en/blog/tags/rust-\u5b78\u7fd2\u7b46\u8a18","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

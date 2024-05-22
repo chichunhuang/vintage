@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktotem=self.webpackChunktotem||[]).push([[3627],{7761:t=>{t.exports=JSON.parse('{"label":"Rust \u5b78\u7fd2\u7b46\u8a18","permalink":"/blog/tags/rust-\u5b78\u7fd2\u7b46\u8a18","allTagsPath":"/blog/tags","count":1}')}}]);
