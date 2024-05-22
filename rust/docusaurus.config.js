@@ -14,8 +14,8 @@ const config = {
 
   // Set the production url of your site here
      //*****TotemTemplate*****
-  url: 'https://chichunhuang.github.io',
-  //url: 'https://rust.insect-totem.net',
+  //url: 'https://chichunhuang.github.io',
+  url: 'https://rust.insect-totem.net',
   
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
