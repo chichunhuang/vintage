@@ -30,7 +30,7 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}-Rust 學習筆記`}
       description="insect-totem.net">
       <HomepageHeader />
       <main>
