@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Insect Totem Blog</title>
-        <link>https://rust.insect-totem.net/vintage/en/blog</link>
+        <link>https://chichunhuang.github.io/vintage/en/blog</link>
         <description>Insect Totem Blog</description>
         <lastBuildDate>Sun, 03 Dec 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[昆蟲圖騰重新上架]]></title>
-            <link>https://rust.insect-totem.net/vintage/en/blog/insect-totem-is-coming</link>
-            <guid>https://rust.insect-totem.net/vintage/en/blog/insect-totem-is-coming</guid>
+            <link>https://chichunhuang.github.io/vintage/en/blog/insect-totem-is-coming</link>
+            <guid>https://chichunhuang.github.io/vintage/en/blog/insect-totem-is-coming</guid>
             <pubDate>Sun, 03 Dec 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[* 以前註冊的是 www.insect-totem.tw]]></description>
             <content:encoded><![CDATA[<ul><li>以前註冊的是 <a href="http://www.insect-totem.tw" target="_blank" rel="noopener noreferrer">www.insect-totem.tw</a></li><li>現在改註冊 <a href="http://www.insect-totem.net" target="_blank" rel="noopener noreferrer">www.insect-totem.net</a><ul><li>由生物轉生態，再由生態轉行為生態，再到生物電腦模擬。現在在幫忙開發與醫療/醫學/醫研相關的系統。多了些資訊相關筆記所以改 net。</li></ul></li></ul>]]></content:encoded>
