@@ -1,5 +1,5 @@
 ---
-title: Rust 安裝
+title: 冒號右側要留個空白不然會編譯錯誤-側Rust 安裝
 description: Rust 安裝
 keywords: [Rust,Install]
 ---

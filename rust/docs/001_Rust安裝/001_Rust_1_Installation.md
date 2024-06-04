@@ -21,10 +21,10 @@ import { CodeBlock, dracula  } from "react-code-blocks";
 
 ### SDK 紀錄
 * 下載並安裝這邊先下載 [Windows 版的 Rust SDK](https://www.rust-lang.org/tools/install) 與安裝工具
-    * Desktop Development with C++
+    * Desktop Development with C++  
     * 出現提示 <span style={{color: '#0044FF'}}> __Install the C++ build tools before proceeding__ </span>. 應先中斷後安裝 [C++ build tools](#vs_install)  
-    * 下載 [Visual Studio](https://visualstudio.microsoft.com/downloads)
-    * 下載 [Visual Studio Code](https://code.visualstudio.com/download)
+    * 下載 [Visual Studio](https://visualstudio.microsoft.com/downloads)  
+    * 下載 [Visual Studio Code](https://code.visualstudio.com/download)  
     
 __ 安裝工具出現 C++ build tools are required __
 
@@ -133,7 +133,6 @@ Press the Enter key to continue.
 * Rust extension Pack Zerotask
 ![ Rust extension Pack](/img/rust/insect_totem_net_rust_install_step_008.jpg "Rust extension Pack")
 
-
 ## 試一下安裝效果
 * Visual Studio Code > Termial 確認一下安裝狀況
 
@@ -166,3 +165,23 @@ Hello, world!
 ```
 
 確認基本環境安裝完成
+
+
+## 更新 Rust 到最新版
+__Cmd Terminal__
+
+```
+$ insecttotem> rustup update
+```
+
+## 檢視 Rust documentation
+* 輸入指令後 Rust 會以瀏覽器開啟
+* 註: Rust 安裝時會一併下載 Rust 說明文件
+    * [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html) 
+    * [The Cargo Book](https://doc.rust-lang.org/stable/cargo/)  <span id="cargo">&nbsp;</span>    
+
+__Cmd Terminal__
+
+```
+$ insecttotem> rustup doc
+```

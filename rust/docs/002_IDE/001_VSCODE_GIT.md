@@ -1,5 +1,5 @@
 ---
-title: Git 與 VS Code
+title: Git 開發準備
 description: VS Code Git 設定
 keywords: [Rust,VS Code, Git]
 ---
