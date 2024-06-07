@@ -12,7 +12,9 @@ keywords: [Rust,Data_Type]
     * 布林  
     * 字元  
 * 複合 Compound Type
-    * 
+    * 🚩  [Tuple \(&nbsp;\)](#rust_tuple): 固定長度，可不同型別  
+    * 🚩  [Array \[&nbsp;\]](#rust_array): 固定長度，元素需同型別
+    * [Vector](#rust_vector): 可變長度，元素需同型別
     
     
 ## Integer 
@@ -44,8 +46,8 @@ keywords: [Rust,Data_Type]
 > Rust Char: 4bit Unicode。
 
 
-## Tuple \(\)
-> immutable，元素不要求同型別。  
+## Tuple \(\) <span id="rust_tuple">&nbsp;</span>
+> immutable，固定長度，元素不要求同型別。  
 > 跟 Python 一樣， Rust Tuple 可以進行解包賦值。 
 > 也可以經由 zero-based index 取值。操作子為簡單的點符號非一般常見的中括號。   
 > 另外: Rust 界稱無元素的 tuple 為 Unit。
@@ -63,7 +65,7 @@ fn main() {
 }
 ```
 
-## Array \[\]
+## Array \[\] <span id="rust_array">&nbsp;</span>
 > **固定長度，元素同型別。**  
 > zero-based index 中括號取值。 
 > 語法:   
@@ -85,5 +87,17 @@ println!("Main Dish = {main_dish}");
 ```
 
 
-## Vector 向量
-> 可變長度，元素同型別。
+## Vector 向量 <span id="rust_vector">&nbsp;</span>
+> **可變長度，元素需同型別**  
+
+
+__NoteMessage__
+```rust
+let mut shopping_cart: Vec<&str> = Vec::new();
+
+shopping_cart.push("Book");
+shopping_cart.push("Pen");
+shopping_cart.push("Eraser");
+shopping_cart.push("Ruler");
+
+```
