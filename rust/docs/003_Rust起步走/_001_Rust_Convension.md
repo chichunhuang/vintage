@@ -49,6 +49,16 @@ __Rust 註解__
 比較運算元(Comparison, ==, !=, >, <)
 
 
+:: chapter5/7
+let mut s = String::from("hello"); 
+將 from 函式置於 String 型別的命名空間（namespace）底下
+=> Java 中的  String s = new String("hello"); , 以 String 型別處理動態的 string 內容。
+=> 有別於 String s2 = "hello";
+=> s1 : stack
+=> s2 : heap
++> ref : Java 128 以下
+
+
     
 算術運算元 (+-/*)
 賦值運算元(Augmented Assignment, =, +=, -=, /=, %=, **=, //=)
