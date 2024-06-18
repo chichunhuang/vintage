@@ -80,6 +80,7 @@ let variableName2:[defaultValue; size];
 ```
 
 __Array Example__
+
 ```rust
 let meal_special:[&str; 3] = ["Burger", "Coke", "french fries"]; 
 let main_dish = meal_special[0];
@@ -91,7 +92,8 @@ println!("Main Dish = {main_dish}");
 > **可變長度，元素需同型別**  
 
 
-__NoteMessage__
+__Vector Example__
+
 ```rust
 let mut shopping_cart: Vec<&str> = Vec::new();
 
@@ -101,3 +103,14 @@ shopping_cart.push("Eraser");
 shopping_cart.push("Ruler");
 
 ```
+
+## Unit Type
+> 特殊的 Tuple 狀態，沒有任何 elements 的 Tuple 又稱為單元型別 (Unit Type)，  
+> 通常用來代表一個空的回傳型值。  
+> 當 expression 沒有回傳任何值的話，Rust 會隱含地回傳單元型別。  
+>
+> 不知為什麼 Rust Documentation 要額外提 Unit Type，就單純是一個空的 Tuple。
+
+## Unit-like Structs
+> Struct 類似 Java 的 Class。用來將真實事物抽象化時使用。  
+> Unit-like Struct 則是指內容全空的 Struct。  
