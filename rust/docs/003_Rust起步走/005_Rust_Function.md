@@ -4,17 +4,21 @@ description: Rust Functions
 keywords: [Rust,Function]
 ---
 
-# Rust 函式
+# Rust 函式(Function)
+* 這邊指的是可以單獨存在的一級公民 function。有別於 [struct 結構體](Rust_Struct) 下的 method。
 * Function 命名規則 snake case: 小寫，以底線區隔單詞。  
-* 關鍵字 fn, return     
+* 關鍵字 **<span style={{color: '#0044FF'}}> fn, return </span>**   
 
 
 ## 語法
 * 關鍵字
     * fn 用來進行函式宣告
-    * return 用來提示回傳值  
+    * return 用來提示回傳值
+    * 預設做末行 expression 為隱式回傳值 (注意: 末端沒有分號)  
 * Parameter 
     * Signature 必須宣告型別。(Rust 是強型別語言)  
+    * 若是可變型別 需加上 mut 關鍵字
+    * 若是指標型別 需再加上 & 關鍵字
 * 回傳值以 
     * -\> 符號宣告  
     * 完整回傳表達式為 return + 回傳內容 + 分號   
@@ -25,9 +29,13 @@ keywords: [Rust,Function]
 __Rust Function Syntax__
 
 ```rust
-fn function_name(param1: type, param2: type2 ) -> return_type {
+fn function_name(param1: type, param2: mut type2 ) -> return_type {
     do_something("SYNTAX");
     return value;
+}
+
+fn change_description(desc: &mut String) -> bool{
+    ....
 }
 ```
 
