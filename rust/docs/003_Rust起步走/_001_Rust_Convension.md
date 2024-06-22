@@ -47,7 +47,7 @@ __Rust 註解__
     
 # Operators
 比較運算元(Comparison, ==, !=, >, <)
-
+:: | method reference/associated function	| java 只需要 method name, rust 要再加 (), ex: Person::age , 
 
 :: chapter5/7
 let mut s = String::from("hello"); 

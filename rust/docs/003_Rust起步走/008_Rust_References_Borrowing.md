@@ -21,11 +21,14 @@ keywords: [Rust,References Borrowing]
     
 > 重點觀念摘要:  
 >> Instance 的 Variable 若當 argument pass 給函數後，  
->> 預設所有權會一併傳給 Ffunction，因而造成原先變數失效。  
+>> 預設所有權會一併傳給 Function，因而造成原先變數失效。  
 >> 若 Variable 想保留所有權，則可以借出 reference 給 Function。  
 >> 對 Function 來說便是參考借用 (References Borrowing)，   
 >> 當 Function 借來的參考離開作用域後，因為 Function 沒有所有權，所以記憶體不會被釋放掉。  
 >> 此時 argument 要加上 & 修飾，用來表達僅是借用。  
+>
+>> Compiler 會確保參考永遠有效  
+>> 同時間只能有一個可變參考，或是任意個不可變參考  
 
 
 ## 函數借用變數參考
@@ -69,3 +72,60 @@ fn count_length_borrow(input: &String)->usize{
 ```    
 
 ## 函數借用可變變數參考
+> 與變數宣告過程相似，變數分為可變變數與不可變變數。  
+> 可變變數的變數名前須加上 mut 進行修飾，用來說明變數所指向的記憶體是可以被異動的。  
+> 反之，未加修飾的話則不能異動。  
+> 在 **物件類的參考變數** 上也是類似的，  
+> 首先我們需要先將變數宣告為 **可變** 也就是加上 **mut** 修飾。  
+> 然後，要傳遞參考時效加上 **&** 修飾字。  
+> 此時參考所帶的記憶體預設是不可變的，若改成可變則需要在 & 之後加上 mut。   
+> 再加上 Rust 超強型別限制，別忘了 signature 部分也要加上 mut 修飾。   
+>
+> 再回到所有權的概念(資料競爭): 
+>> 記憶體只能一個參考擁有。如此可避免誤改或銷毀資料。   
+>> 同樣概念，**借用的可變** 參考同時間只能存在一個。  
+>> 避免多方同時修改記憶體資料。  
+>> 同樣同一資料的可變與不可變參考，無法同時存在。  
+>> 你不會希望拿到手的不可變參考的內容會改變吧。  
+>> 整個的概念與想法可以藉由**資料庫資料隔離 isolation** 的概念來思考。  
+>> 不過在 VS Code 上練習時，基本上 IDE 都能提示，所以無須擔心。  
+ 
+
+__Mutable Reference Example__
+
+```rust
+pub fn mut_reference(){
+    let mut hello = String::from("Hello");
+    //mutable String
+
+    let totem = String::from("Totem");
+    //immutable String
+
+    let x = appendToWhom(&mut hello, &totem);
+    //傳遞參考時要加上 &
+    //若是可變參考要再加上 mut
+
+    println!("{}", x);
+}
+
+
+//signature: greet 也需要宣告
+// 1. & : reference
+// 2. mut : mutable 
+fn appendToWhom(greet: &mut String, target: &String ) -> String{
+    greet.push_str(", "); //因為有宣告 mut 所以不會 compile error
+    greet.push_str(target);
+    return greet.clone();
+} // greet 是參考所以記憶體不會歸還
+```
+ 
+## 迷途參考 Dangling Pointer
+> 指的是資源已被釋放，但指標卻還留著。  
+> 基本上 Rust Compile 管那麼多，所不必擔心。  
+> 也別想嘗試是寫一個，因為 Rust Compiler 會保護你。  
+
+
+## Slice Type<span id="Rust_Slice">&nbsp;</span>
+
+
+> 

@@ -15,6 +15,9 @@ keywords: [Rust,Data_Type]
     * 🚩  [Tuple \(&nbsp;\)](#rust_tuple): 固定長度，可不同型別  
     * 🚩  [Array \[&nbsp;\]](#rust_array): 固定長度，元素需同型別
     * [Vector](#rust_vector): 可變長度，元素需同型別
+* [Slice 型別](#Rust_Slice)
+    * 指的是 Compound Type 的部分切片，嚴格說來不算是一種型別。僅是複合型別的部分參考。      
+    [Rust 參考與借用:Slice]s(#Rust_Slice)
     
     
 ## Integer 
