@@ -249,7 +249,7 @@ pub fn break_with_return() {
 
 __傳統 OOP 實作比較__
 
-```rust
+```Rust
 pub fn break_with_return2() {
     let salt = rand_num();
 
