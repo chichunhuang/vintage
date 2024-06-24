@@ -106,6 +106,11 @@ const config = {
             label: 'Python 學習紀錄',
             position: 'left',
           },
+          {
+            href: 'https://insect-totem.net/',
+            label: 'Insect Totem 主站',
+            position: 'left',
+          },
 
           // {to: '/docs/Graphics/docs-map', label: 'Graphics', position: 'left'},
           

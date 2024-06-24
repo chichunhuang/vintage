@@ -127,5 +127,29 @@ fn appendToWhom(greet: &mut String, target: &String ) -> String{
 
 ## Slice Type<span id="Rust_Slice">&nbsp;</span>
 
+> 'Slice 讓我們可依參考一串集合中的元素序列，而並非參考整個集合'。  
 
-> 
+__Slice Syntax__
+
+* zero-based index  
+* from index 為 0 時，可以省略  
+* to_index 為長度時，可以省略  
+
+```rust
+    let var_name = &var_reference[from_index..to_index];
+```
+
+__Slice Example__
+
+```rust
+
+pub fn slice_example(){
+    let msg = String::from("Insect Totem : Rust");
+    let a = &msg[0..12]; //
+    let b = &msg[15..msg.len()];
+
+    println!("{}", a);
+    println!("{}", b);
+}
+
+```
