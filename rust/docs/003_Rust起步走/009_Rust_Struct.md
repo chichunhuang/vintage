@@ -4,16 +4,5 @@ description: Rust Struct
 keywords: [Rust, Struct]
 ---
 
-__ foreach in __
-
-```Rust
-
-    let bytes ="Hello World".as_bytes();
-
-    for (index, &item) in bytes.iter().enumerate(){
-      print!("{}", index);  
-      print!("{}", item);
-    }
-
-
-```
+# Rust Struct 結構體
+> 以比較孰悉的 Java 來比喻，Rust Struct 指的是 Java 的 Class> 

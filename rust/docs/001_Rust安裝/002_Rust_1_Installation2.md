@@ -203,4 +203,4 @@ $ insecttotem> rustup doc
 
 
 ## Troubleshooting
-*  [VSCode Troubleshooting](VSCode_Troubleshooting)
+*  [VSCode Troubleshooting](../IDE/VSCode_Troubleshooting)
