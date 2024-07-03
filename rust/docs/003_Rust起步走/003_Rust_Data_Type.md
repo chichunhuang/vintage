@@ -18,9 +18,12 @@ keywords: [Rust,Data_Type]
 * [Slice 型別](#Rust_Slice)
     * 指的是 Compound Type 的部分切片，嚴格說來不算是一種型別。僅是複合型別的部分參考。      
     [Rust 參考與借用:Slice]s(#Rust_Slice)
+* 集合類型 Collections  
+    * [向量 Vector](#rust_vector): 可變長度，元素需同型別。      
+    * [字串 String](#rust_string): 字元(chars)的集合。  
+    * [雜湊映射 Hash Map](#rust_hashmap): key-value       
     
-    
-## Integer 
+## Numeric 
 > 細分為 signed / unsigned  integer  
 > 特殊處:
 >> 字面量(literals): 可以在數值字面量後加上型別，ex: 10 v.s. 10u8  
@@ -92,10 +95,15 @@ println!("Main Dish = {main_dish}");
 
 
 ## Vector 向量 <span id="rust_vector">&nbsp;</span>
-> **可變長度，元素需同型別**  
+> **有許可變長度，同型別元素的儲存元件**  
+* 基本建構方式  
+* 使用巨集快速建構  
+* 自 Vector 取值  
+* [<span style={{color: '#0044FF'}}> **遍歷並改值** </span>: 🖍️ 特殊，大部分語言並不允許](#iteration_go_with_modification)  
+* [打破 Vector 同型別原物的限制: 藉由 Rust enum variant 的特殊特性。](#vector_consist_of_diff_element)
 
 
-__Vector Example__
+### __Vector Example: 基本建構方式__
 
 ```rust
 let mut shopping_cart: Vec<&str> = Vec::new();
@@ -106,6 +114,90 @@ shopping_cart.push("Eraser");
 shopping_cart.push("Ruler");
 
 ```
+
+### __Vector Macro Example__
+
+* rust 提供了 vec! 巨集，用來快速建立 vector。
+
+```rust
+pub fn use_macro_to_init_vector() {
+    let v:Vec<&str> = vec!["A", "B", "C"];
+
+    for i in &v {
+        println!("{i}");
+    }
+}
+```
+
+### __Fetch Value from Vector__
+* 註: Option 可經由 unwrap() 取值
+
+```rust
+pub fn create_vector() {
+    let mut shopping_cart: Vec<&str> = Vec::new();
+
+    shopping_cart.push("Book");
+    shopping_cart.push("Pen");
+    shopping_cart.push("Eraser");
+    shopping_cart.push("Ruler");
+
+    for item in &shopping_cart {
+        println!("{item}");
+    }
+
+    // Vector 取值方式, by index, by get
+    // 索引語法
+    let second: &str = shopping_cart[1];
+    println!("The 2nd is: {second}");
+    //The 2nd is Pen
+
+    // get 語法
+    let get_second: Option<&&str> = shopping_cart.get(1);
+    match get_second {
+        Some(get_second) => println!("Get 2nd: {get_second}"), //Get 2nd: Pen, 不用 unwrap?
+        None => println!("Not exists: {:?}", get_second),  //Not exists: None
+    }
+
+    if (get_second != None) {
+        println!("2nd.unwrap is not None: {}", get_second.unwrap());
+        // 2nd.unwrap is not None: Pen
+
+        println!("2nd.unwrap is not None ?: : {:?}", get_second.unwrap());
+        // 2nd.unwrap is not None ?: : "Pen"
+
+        println!("2nd is not None ?: : {:?}", get_second);
+        // 2nd is not None ?: : Some("Pen")
+    }
+}
+```
+
+### 遍歷並改值 <span id="iteration_go_with_modification">&nbsp;</span>
+* 使用解參考 operator \*，並給予新值。  
+
+```rust
+pub fn iteration_go_with_modification() {
+    let mut vect: Vec<i32> = vec![1 , 2, 3];
+
+    println!("Original");
+    for item in &vect {
+        println!("{item}");
+    }
+
+    println!("Iterate and Modify");
+    for item in &mut vect { //取得可變參考, 
+        *item = item.clone() * 10; //使用解參考運算子，改數值。
+    }
+    for item in &vect {
+        println!("{item}");
+    }
+    // Iterate and Modify
+    // 10
+    // 20
+    // 30
+}
+```
+### <span id="vector_consist_of_diff_element">Vector 裝載不同型別元素</span>
+* 藉由 [Rust enum variant](./Rust_Enum_Match) 的特殊特性
 
 ## Unit Type
 > 特殊的 Tuple 狀態，沒有任何 elements 的 Tuple 又稱為單元型別 (Unit Type)，  
