@@ -69,6 +69,20 @@ let mut s = String::from("hello");
 
 
 
+## println! 巨集
+> 這個巨集類似 Java 的 system.out.println()。   
+> 在 Java 中，println 會列印資料結構 toString() 方法的回傳結果。且若資料結構未實作/覆寫 toString() 則系統會回以頂層物件的 Object.toString() 內容。  
+> 在 Rust 中同樣的是每個結構須自行定義 Display，但 Rust 不會提供欲設方法。  
+> 資料結構若未定義 Display 則 Rust println! 巨集執行時將拋出 'bar' doesn't implement 'std::fmt::Display'   
+> 若未實作 std::fmt::Display， println! 巨集可搭配使用 {:?}, {:#?} 等 debug formatters 使用。
+>> 同樣，Rust 總是需要宣告。若使用 {:?} 則須在資料結構(例如 struct)的宣告處加上 #\[derive(Debug)\] 
+
+
+## dbg! 巨集
+> 功能類似 println! 巨集。但是:  
+>> dbg! 會搶走所有權，且 dbg! 會輸出至 stderr  
+>> println! 只會取走參考，而 println! 會輸出至 stdout    
+
 
 
 

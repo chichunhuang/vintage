@@ -12,12 +12,12 @@ keywords: [Rust,Data_Type]
     * 布林  
     * 字元  
 * 複合 Compound Type
-    * 🚩  [Tuple \(&nbsp;\)](#rust_tuple): 固定長度，可不同型別  
-    * 🚩  [Array \[&nbsp;\]](#rust_array): 固定長度，元素需同型別
-    * [Vector](#rust_vector): 可變長度，元素需同型別
-* [Slice 型別](#Rust_Slice)
+    * 🚩  [Tuple \(&nbsp;\)](#rust_tuple): 固定長度，可不同型別    
+    * 🚩  [Array \[&nbsp;\]](#rust_array): 固定長度，元素需同型別  
+    * [Vector](#rust_vector): 可變長度，元素需同型別  
+* [Slice 型別](./Rust_References_Borrowing#Rust_Slice)  
     * 指的是 Compound Type 的部分切片，嚴格說來不算是一種型別。僅是複合型別的部分參考。      
-    [Rust 參考與借用:Slice]s(#Rust_Slice)
+    * [Rust 參考與借用:Slice](./Rust_References_Borrowing#Rust_Slice)  
 * 集合類型 Collections  
     * [向量 Vector](#rust_vector): 可變長度，元素需同型別。      
     * [字串 String](#rust_string): 字元(chars)的集合。  
@@ -55,7 +55,7 @@ keywords: [Rust,Data_Type]
 ## Tuple \(\) <span id="rust_tuple">&nbsp;</span>
 > immutable，固定長度，元素不要求同型別。  
 > 跟 Python 一樣， Rust Tuple 可以進行解包賦值。 
-> 也可以經由 zero-based index 取值。操作子為簡單的點符號非一般常見的中括號。   
+> 也可以經由 <span style={{color: '#0044FF'}}> zero-based index 取值。**操作子為簡單的點** 符號非一般常見的中括號 </span>。   
 > 另外: Rust 界稱無元素的 tuple 為 Unit。
 
 ```rust
@@ -197,7 +197,53 @@ pub fn iteration_go_with_modification() {
 }
 ```
 ### <span id="vector_consist_of_diff_element">Vector 裝載不同型別元素</span>
-* 藉由 [Rust enum variant](./Rust_Enum_Match) 的特殊特性
+> 藉由 [Rust enum variant](./Rust_Enum_Match) 的特殊特性，也就是每個 variant 可以具備各自特有的 fields。  
+> 藉由這個特性讓每個 enum instance 把持一個特定的型別。  
+> 再將這些 enum instances 存在 Vector 之中。
+
+* 使用重點:
+    * enum variants 建立方式  
+    * 自 enum instance 中取出 field 內容(unpacking)    
+
+```rust
+enum TextFieldDataType {
+    StringType(String),
+    DateType(DateTime<Utc>),
+    NumericType(i32),
+}
+
+
+pub fn vector_multitype_elements() {
+    // 以 Vector 存多個 TextFieldDataType
+    // 每個 TextFieldDataType 攜帶一個不同型別的資料
+    let multi: Vec<TextFieldDataType> = vec![
+        TextFieldDataType::StringType(String::from("Totem Rust")),
+        TextFieldDataType::NumericType(100),
+        TextFieldDataType::DateType(Utc::now()),
+    ];
+
+    for item in &multi {
+        let mut value = String::from("");
+
+       // # 取出 TextFieldDataType 所攜帶的資料，並統一轉成 String 進行後續處理。
+       // 這邊牽涉到 Rust 資料解包 (unpacking)
+        match item {
+            TextFieldDataType::StringType(field) => {
+                value = field.clone();
+            }
+            TextFieldDataType::NumericType(number) => {
+               value = number.to_string();
+            }
+            TextFieldDataType::DateType(date) => {
+                value = format!("{}", date);
+            }
+        }
+
+        println!("{}", value);
+    }
+}
+```    
+
 
 ## Unit Type
 > 特殊的 Tuple 狀態，沒有任何 elements 的 Tuple 又稱為單元型別 (Unit Type)，  

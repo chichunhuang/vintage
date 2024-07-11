@@ -5,8 +5,8 @@ keywords: [Rust,Function]
 ---
 
 # Rust 函式(Function)
-* 這邊指的是可以單獨存在的一級公民 function。有別於 [struct 結構體](Rust_Struct) 下的 method。
-* Function 命名規則 snake case: 小寫，以底線區隔單詞。  
+* 這邊指的是可以單獨存在的一級公民 function。有別於 [struct 結構體](./Rust_Struct) 下的 method。
+* Function 命名規則 **<span style={{color: '#0044FF'}}>snake case</span>** : 小寫，以底線區隔單詞。  
 * 關鍵字 **<span style={{color: '#0044FF'}}> fn, return </span>**   
 
 

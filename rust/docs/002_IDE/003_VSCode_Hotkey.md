@@ -10,6 +10,7 @@ keywords: [Rust,VS_Code]
 |----------|-----------------|
 | 行複製 | Shift + Alt + Up/Down |
 | line move up/down | Alt + up/down |
+| previous/next  editing | Alt + left/right |
 | variable rename | F2 |
 | code formatting | Shift + Alt + F |
 | delete line | Ctrl + x |

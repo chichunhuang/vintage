@@ -12,7 +12,7 @@ keywords: [Rust, describing, the main topics]
         * loop Loop: 無限迴圈，除非遇到 break  
         * for Loop
         * while Loop
-    * [pattern match: 類似其他語言的 switch/case 分支結構](./Rust_Struct/Rust_Pattern_Match)    
+    * [pattern match: 類似其他語言的 switch/case 分支結構]()    
 
 
 
@@ -273,3 +273,6 @@ fn rand_num() -> i32 {
     }
 }
 ```
+
+##　Pattern match: 類似其他語言的 switch/case 分支結構 <span id="matching">&nbsp;</span>
+* [Rust Enum and Match Pattern](./Rust_Enum_Match#matching)
