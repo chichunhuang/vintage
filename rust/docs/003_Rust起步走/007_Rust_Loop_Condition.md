@@ -276,7 +276,7 @@ fn rand_num() -> i32 {
 ```
 
 ##　Pattern match: 類似其他語言的 switch/case 分支結構 <span id="matching">&nbsp;</span>
-* [Rust Enum and Match Pattern](./Rust_Enum_Match#matching)
+* [Rust Enum and Match Pattern](./Rust_Enum_Match#switch_case)
 
 
 ## If let condition <span id="if_let">&nbsp;</span>

@@ -273,7 +273,7 @@ pub fn associated_function_exercise(){
 > 因為 enum 同為 Java static instance 的概念，所以也能運用在 Pattern Matching。  
 > 
 >> 參考 :  
->> [Rust enum](./Rust_Enum_Match)  
+>> [Rust enum](./Rust_Enum_Match#switch_case)  
 >> [Rust Pattern Matching](./Rust_Loop_Condition#matching)  
 
 

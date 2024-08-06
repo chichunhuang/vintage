@@ -10,18 +10,14 @@ keywords: [Rust,enum,Pattern_Matching]
 > Rust 中也有，也稱為 enum，使用上也類似。  
 > 因為 enum 同為 Java static instance 的概念，所以也能運用在 Pattern Matching。 
 
-> [Rust Pattern matching 簡單的比喻就是其他語言的 switch/case 分支結構](./Rust_Loop_Condition#matching)   
+> [Rust Pattern matching 簡單的比喻就是其他語言的 switch/case 分支結構](./Rust_Loop_Condition#switch_case)   
 > 因為 Rust enum instance 可以再攜帶獨自型別的資料，因此使用上增加更多變化。  
 
 ## Rust Enum <span id="enum">&nbsp;</span>
-> 
-* intro
-
 * [Rust enum 基本使用方式1 (with same-type fields)](#basic_enum)
 * [Rust enum 基本使用方式2 (with diff-type fields)](#basic_enum)
-* [None 與 Some: 標準函式庫中特殊的 rust enum](#none_some)
-
-* pattern matching
+* [None 與 Some: Option 標準函式庫中特殊的 rust enum](#none_some)
+* [Enum and Match Pattern/ Switch Case](#switch_case)
 
 ## Rust enum 基本使用方式 <span id="basic_enum">&nbsp;</span>
 * 語法注意: 最後一個 variant 後是以<span style={{color: '#FF1100'}}>**逗號結尾**</span>
@@ -103,5 +99,72 @@ pub fn fetch_enum_field_value() {
 >     當有可能出現空值的情境時，在 rust 中選擇以 Option<T\> 作為回傳。  
 >      Option enum 下有兩個 instance : None 與 Some<T\>。 None 可用來借代為空值。  
 
-* None 與 Some
+## None 與 Some: Option 標準函式庫中特殊的 rust enum
+> 同樣的 Java 中也有 Option 用來避免 Null Pointer Exception，Rust 中的 None 與 Some 也具有相同的設計目的。  
+> Rust enum variants 因為可以擁有不同數量與型別成員變數的特性，因而被選用來時做 Option。   
+>  
+> 簡單的說便是: Option 這個結構(struct/type)有 Some 與 None 這兩種變體(Variants)。  
+>> 因此可以利用 Option 加上定義泛型成員的方式來定義有能為空值的變數的型別。  
+>> 當變數有值時: 以 Some<type> 封裝回傳值  
+>> 當變數缺值時: 則直接給予 None  
+>> 注意: <span style={{color: '#FF1100'}}>** Some 的 value 只能取出一次**</span>，取出後即歸還記憶體。  
+
+
+__Option 範例__
+
+```rust
+fn dummy_dataset_find_find_by_name(name : String) -> Option<String> {
+    return Some(String::from("Insect totem"));
+}
+
+pub fn option_exercise(){
+
+    let totem: Option<String> = dummy_dataset_find_find_by_name(String::from("key"));
+    
+    //style A
+    if let Some(value: String) = totem {
+        print!("My name is {}", value);
+    }    
+}
+
+pub fn option_exercise2(){
+    let totem: Option<String> = dummy_dataset_find_find_by_name(String::from("key"));
+    //style B
+    let mut certified_name: String = String::from("not found");
+    if let Some(value) = totem {
+        certified_name = value;
+    }
+    print!("My name is {}", certified_name);
+}
+
+```
+
+__Some: use moved value 範例__
+
+```rust
+pub fn option_exercise_error_moved_value(){
+    // 這個範例會出錯
+    let totem: Option<String> = dummy_dataset_find_find_by_name(String::from("key"));
+    
+    if let Some(value: String) = totem {
+        print!("My name is {}", value);
+    }  
+    //=> Some 的 value 已經取出
+    
+    let mut certified_name: String = String::from("not found");
+    if let Some(value2) = totem { // 這邊會報錯 use of moved value
+        certified_name = value2;
+    }
+    print!("My name is {}", certified_name);
+}
+
+```
+
+## Enum and Match Pattern/ Switch Case <span id="switch_case">&nbsp;</span>
+這邊也要寫摘要
+>> [Rust enum](./Rust_Enum_Match#switch_case)  
+>> [Rust Pattern Matching](./Rust_Loop_Condition#matching)  
+
+
+
 
