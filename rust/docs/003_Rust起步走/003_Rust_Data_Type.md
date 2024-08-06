@@ -242,7 +242,7 @@ pub fn vector_multitype_elements() {
         println!("{}", value);
     }
 }
-```    
+```
 
 
 ## Unit Type

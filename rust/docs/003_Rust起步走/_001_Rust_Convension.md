@@ -84,20 +84,6 @@ let mut s = String::from("hello");
 >> println! 只會取走參考，而 println! 會輸出至 stdout    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # image: a thumbnail image to be shown in social media cards
 
 <!-- C 這是 HTML 註解 : 注意註解前  __必須___ 有空行 -->

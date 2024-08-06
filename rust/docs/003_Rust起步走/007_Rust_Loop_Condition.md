@@ -7,12 +7,13 @@ keywords: [Rust, describing, the main topics]
 # Rust 迴圈與流程控制
 * 重點摘要
     * if ... else if ... else
-    * 三元運算 ( Ternary Operator)
+    * [三元運算 ( Ternary Operator)](#ternary_op)
     * 迴圈
         * loop Loop: 無限迴圈，除非遇到 break  
         * for Loop
         * while Loop
-    * [pattern match: 類似其他語言的 switch/case 分支結構]()    
+    * [pattern matching: 類似其他語言的 switch/case 分支結構](./Rust_Enum_Match#matching)    
+    * [if let: 若\(if\) 讓\(let\) **matching condition** 成真則做後續動作](#if_let)
 
 
 
@@ -35,7 +36,7 @@ __Rust if else example__
     }
 ```
 
-## 三元運算子 ( Ternary Operator )
+## 三元運算子 ( Ternary Operator ) <span id="ternary_op">&nbsp;</span>
 * 也可算是一種 if else 變形。 <span style={{color: '#0044FF'}}> **Rust 支援 let statement 中使用 if** </span>  
 * 不同分支的回傳結果必須相同。
 
@@ -276,3 +277,60 @@ fn rand_num() -> i32 {
 
 ##　Pattern match: 類似其他語言的 switch/case 分支結構 <span id="matching">&nbsp;</span>
 * [Rust Enum and Match Pattern](./Rust_Enum_Match#matching)
+
+
+## If let condition <span id="if_let">&nbsp;</span>
+> 若讓 <span style={{color: '#FF1100'}}>**matching condition**</span> 成真則做後續動作。  
+> 是 pattern matching 的 syntax sugar。  
+> 
+> 這個語法應該只用在<span style={{color: '#FF1100'}}>**簡化 Patter Matching 情境**</span>下。  
+> 且意思不同於單純的 if 句子(後面接的是 boolean expression)。  
+> 註: 目前應該是因為對 Rust 仍在初學階段，語法原則不明白。所以使用上有非預期的情境出現。  
+> 例如:  
+> **pattern_condition** 中等號兩側 expression 不可互換，  
+> **左側必須是 enum 的變體 instance 列舉**。  
+> **右側應該限定是輸入的條件參數**。  
+> pattern_condition : 僅限是 enum 的比對，不同於一般的 if condition。  
+> 
+>> <span style={{color: '#FF1100'}}>**目前我傾向於少用**</span>，畢竟我對這語法不了解。  
+
+__if let syntax__
+* 若(if) 讓/當(let) condition 成真則做後續動作，不然(else) 做另一動作。  
+
+```rust
+if let pattern_condition {
+    go();
+} else {
+    wait();
+}
+```
+
+__if let syntax: 官方範例 __
+
+```rust
+// 未使用 sugar 的原始長相:
+let onfig_max = Some(3u8);
+match onfig_max {
+    Some(max)=> println!("最大值為 {}", max),
+    _=>(), // do nothing
+}
+
+// 等同於
+let onfig_max = Some(3u8);
+if let  Some(max)= onfig_max {
+   println!("最大值為 {}", max);
+} else {
+    do_nothing();
+}
+```
+
+__pattern_condition Syntax__
+* enum_variant : 這邊是 enum 的 static instance。
+* instance : 這邊指的是情境代入的狀態。
+* 這邊似乎左右 expressions 不可互換。
+* 這邊不同於 boolean expression。
+
+```rust
+enum_variant = instance
+
+```

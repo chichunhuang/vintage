@@ -23,7 +23,7 @@ keywords: [Rust, Struct]
     * instance : 由 struct 所創建的實例 
     * Rust struct 特殊處:  
     
-## Rust Struct
+## Rust 結構體(Struct)
 
 ### 結構體宣告與屬性宣告
 
@@ -143,10 +143,138 @@ fn main(){
 
 ```
 
+## 方法(Struct Method) <span id="rust_method">&nbsp;</span>
+> Method 指的是針對 struct 所建立的相依函式，  
+> 且 Method 的 Signature 的第一個 parameter 應該是 self。 
+> method 藉由 self 與 struct instance 綁定。   
+>> 1. 與 Java 不同，Java 語言中 methods 與 class 封裝在同一個 Block 之內。  
+>>    Rust 則是定義在不同的區塊內(impl block)，所以藉由 self 與之綁定。    
+>>    而 **impl block 上則需標註所關聯的 struct** 類別。  
+>> 2. method 第一個 parameter 若不為 self 的 method 稱為 **關聯函式\(Associated Functions\) ** 。   
+>>    這便就類似 Java 中的 Util 類別時做結構。如 StringUtil 下的多個 static functions。
+>> 3. 一個 STRUCT 可以有多個關聯的 impl blocks。  
 
+### Rust Method 定義語法
+* impl method signature 的 &self 是 self: &Self 簡筆。  
+    * Self(大寫 S) 指向 impl 的主體 struct，也就說 self 為 struct instance 參照的簡寫方式。  
+* 一個 struct 可以有多個 impl block 定義區。     
 
-## Pattern Match <span id="Rust_Pattern_Match">&nbsp;</span>
-note: ref 補充 007_Rust_Loop_Condition
+__Rust Method: impl block Syntax __
 
 ```rust
+impl MyStruct {
+    fn my_common_method(&self, p1: type1, pN: typeN) -> returnType{
+        do...
+    }
+    
+    fn my_associated_method(p1: type1, pN: typeN) -> returnType{
+        do...
+    }
+}
 ```
+
+__Rust Method Example__
+
+```rust
+pub struct Television{
+    power : bool,
+}
+
+// method 
+impl Television {
+    pub fn turn_on(&mut self)-> bool{
+    //signature 等同於(self: &mut Self)
+       self.power = true;
+       return self.power;
+    }
+
+    fn turn_off(&mut self)-> bool{
+       self.power = false;
+       return self.power;
+    }
+}
+
+pub fn method_exercise(){
+    let mut sony = Television{
+        power: false,
+    };
+
+    sony.turn_on();
+    println!("The television is: {}", if sony.power { "on" } else { "off" } );
+
+    sony.turn_off();
+    println!("The television is: {}", if sony.power { "on" } else { "off" } );
+}
+
+```
+
+
+## 關聯函式(Associated Functions) 定義語法
+> 可以想成是 Java 的 static methods。  
+>> Method Signature 第一 parameter 不為 &self 的 function，稱為 associated function。(因為不與 struct 相依所以稱 function)  
+> 
+* 關鍵字 <span style={{color: '#0044FF'}}> **S**elf </span>: **Self 型別指的是 impl block 要實作型別的別名(alias)**。
+    * 所以實際使用時也可以直接使用 struct name。  
+* 依據慣例 Associated Functions 也是 snake case。     
+
+__Associated Functions Example__
+
+```rust
+#[derive(Debug)] // {:#?}, 允需 print! 巨集執行 debug print
+pub struct Person{
+    name : String,
+    role : String,
+}
+
+impl Person {
+    // Rust 界的優雅用法 
+    // a: Self alias
+    // 回傳 last expression 
+    pub fn teacher(name : String) -> Self{
+        Self{
+            name,
+            role: String::from("Teacher"),
+        }
+    }
+
+    // 這邊以 Self 借代 Person 型別。
+    pub fn student(name : String) -> Self{
+        let ret = Self{
+            name,
+            role: String::from("Student"),
+        };
+        return ret;
+    }
+
+    // 回傳 last expression
+    pub fn principal(name : String) -> Person{
+        Person{
+            name,
+            role: String::from("Student"),
+        }
+    }
+}
+
+pub fn associated_function_exercise(){
+    let winnie = Person::teacher(String::from("Winnie the Pooh"));
+    let totem = Person::student(String::from("Totem"));
+    let lady = Person::principal(String::from("LadyBird"));
+
+    println!("My teacher is {:#?}", winnie);
+    println!("My name is {}", totem.name);
+    println!("My principle is {}", lady.name);
+}
+```
+
+
+## enum 與 Pattern Matching 
+> Java 中有 enum 這個特殊關鍵字，用來建立一系列同型別的 static instances。  
+> Rust 中也有，也稱為 enum，使用上也類似。  
+> 因為 enum 同為 Java static instance 的概念，所以也能運用在 Pattern Matching。  
+> 
+>> 參考 :  
+>> [Rust enum](./Rust_Enum_Match)  
+>> [Rust Pattern Matching](./Rust_Loop_Condition#matching)  
+
+
+ TODO: enum 建構方式與使用摘要
