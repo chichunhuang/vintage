@@ -270,6 +270,7 @@ pub fn associated_function_exercise(){
 ## enum 與 Pattern Matching 
 > Java 中有 enum 這個特殊關鍵字，用來建立一系列同型別的 static instances。  
 > Rust 中也有，也稱為 enum，使用上也類似。  
+>> Rust 中 Match 流程控制可使用的 <span style={{color: '#0044FF'}}> **Patterns 可以是 字面量、變數名、enum、萬用字元\(佔位符\)** </span> 等。  
 > 因為 enum 同為 Java static instance 的概念，所以也能運用在 Pattern Matching。  
 > 
 >> 參考 :  

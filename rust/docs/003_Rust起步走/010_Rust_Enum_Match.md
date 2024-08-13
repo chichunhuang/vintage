@@ -26,12 +26,14 @@ keywords: [Rust,enum,Pattern_Matching]
 ** 但特別的是， Rust 允許每個 variants 擁有不同數量/型別的 fields。  
 
 ```rust
+//定義區
 enum ProcessStatus{
     Start(String),
     Processing(String, String), //variants 可擁有不同數量/型別的 fields。
     End(String), // 這邊是以逗號結尾 
 }
 
+//使用區
 let init_status = ProcessStatus::Start(String::from("開始"));
 let exe_status = ProcessStatus::Processing(String::from("進行中", "Processing"));
 let done_status = ProcessStatus::End(String::from("完工"));
@@ -59,7 +61,6 @@ enum TextFieldDataType {
 }
 
 pub fn fetch_enum_field_value() {
-    let now = Utc::now();
 
 // Style 1: 在 Match Pattern 上便一並宣告變數。
     let extract_a =
@@ -110,26 +111,36 @@ pub fn fetch_enum_field_value() {
 >> 注意: <span style={{color: '#FF1100'}}>** Some 的 value 只能取出一次**</span>，取出後即歸還記憶體。  
 
 
-__Option 範例__
+__Option:取值範例__
+* let content = opt.unwrap(); 使用 unwrap 可取出 Option 內容。  
 
 ```rust
-fn dummy_dataset_find_find_by_name(name : String) -> Option<String> {
+fn dummy_dataset_find_by_name(name : String) -> Option<String> {
     return Some(String::from("Insect totem"));
 }
 
 pub fn option_exercise(){
 
-    let totem: Option<String> = dummy_dataset_find_find_by_name(String::from("key"));
+    let totem: Option<String> = dummy_dataset_find_by_name(String::from("key"));
     
     //style A
+    let content = totem.unwrap();
+    print!("My name is {}", content);   
+}
+
+pub fn option_exercise2(){
+
+    let totem: Option<String> = dummy_dataset_find_by_name(String::from("key"));
+    
+    //style B
     if let Some(value: String) = totem {
         print!("My name is {}", value);
     }    
 }
 
-pub fn option_exercise2(){
-    let totem: Option<String> = dummy_dataset_find_find_by_name(String::from("key"));
-    //style B
+pub fn option_exercise3(){
+    let totem: Option<String> = dummy_dataset_find_by_name(String::from("key"));
+    //style C
     let mut certified_name: String = String::from("not found");
     if let Some(value) = totem {
         certified_name = value;
@@ -160,11 +171,93 @@ pub fn option_exercise_error_moved_value(){
 
 ```
 
-## Enum and Match Pattern/ Switch Case <span id="switch_case">&nbsp;</span>
+## Enum and Match Pattern/Switch Case <span id="switch_case">&nbsp;</span>
 這邊也要寫摘要
 >> [Rust enum](./Rust_Enum_Match#switch_case)  
 >> [Rust Pattern Matching](./Rust_Loop_Condition#matching)  
+Pattern matching 在 Java 中稱為 Switch Case，整體概念相同，使用上有一些小出入。
+
+> 先說明 Rust 中的 Patterns 限制:  
+>> Patterns 可以是 字面量、變數名、enum、萬用字元\(佔位符\)。   
+>> **分支的模式必須盡舉所有可能性**，不然會 Compile Error。    
+>> 佔位符代替其他所有未列出的 patterns(Java switch-case 中的 default)  
+>> 以 \(\): 單元數值來代表不做任何事情  
+>> if let 變體  
+
+### Pattern matching: enum
+> enum 可__盡舉__，故常在 pattern 中使用。  
+>> 每個 Match Pattern 後應該以逗號做結尾，但若是多行區塊以大括號限制住的話則可省略。
 
 
+### Pattern matching 語法
+__Pattern matching Syntax__
+* => 用來引出後續該執行的 Statement 或 Expression  
+* 每個 Matching 後應該以逗號結尾做分隔  
+* Patterns 必須盡舉  
+* 無法盡舉所有 Patterns 可以以 _ 來代替剩餘可能性，並以 \(\)單元數值來代表不做任何事情  
 
+* 下面範例示範: Pattern Matching，當符合指定 Pattern 時執行特定動作。  
+__match example__
 
+```rust
+enum QuestionType {
+    DVG(u32),
+    Multiple(Vec<u32>),
+    FillIn(String),
+}
+
+fn fetch_answer(question: QuestionType) -> String {
+    match question {
+        QuestionType::DVG(dvg) => {
+            return extract_dvg_answer(dvg);
+        } 
+
+        QuestionType::Multiple(multi) => {
+            return extract_multi_answer(multi);
+        }, //大括號封裝，所以逗號可省略
+        
+        QuestionType::FillIn(fillin) => {
+            return extract_fillin_answer(fillin);
+        }
+    }
+}
+
+fn extract_dvg_answer(dvganswer: u32) -> String {
+    return dvganswer.clone().to_string();
+}
+
+fn extract_fillin_answer(fillin: String) -> String {
+    return fillin;
+}
+
+fn extract_multi_answer(multi: Vec<u32>) -> String {
+    let mut combine = "".to_owned();
+    for item in multi {
+        combine.push_str(&";".to_owned());
+        combine.push_str(&item.to_string());
+    }
+    return combine;
+}
+
+pub fn match_exercise() {
+    let dvg = QuestionType::DVG(10);
+    let multi = QuestionType::Multiple(vec![1, 3, 5]);
+    let fillin = QuestionType::FillIn("Hello, I'm Totem.".to_owned());
+    println!("-----");
+    println!("DVG answer is : {}", fetch_answer(dvg));
+    println!("Multiple answer is : {}", fetch_answer(multi));
+    println!("FillIn answer is : {}", fetch_answer(fillin));
+    
+    //DVG answer is : 10
+    //Multiple answer is : ;1;3;5
+    //FillIn answer is : Hello, I'm Totem.
+}
+```
+
+* 下面範例示範: Pattern Matching 無法盡舉時的處理方式
+> 
+__match example: catch all__
+
+```rust
+
+```
