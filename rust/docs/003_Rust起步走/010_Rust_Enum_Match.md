@@ -39,9 +39,6 @@ let exe_status = ProcessStatus::Processing(String::from("進行中", "Processing
 let done_status = ProcessStatus::End(String::from("完工"));
 ```
 
-```rust
-```
-
 ## Rust enum 基本使用方式2(不同型別數量 fields)<span id="basic_enum2">&nbsp;</span>
 * 語法注意: 同樣最後一個 variant 後是以<span style={{color: '#FF1100'}}>**逗號結尾**</span>
 * enum 本身是一種 struct type，所以也可以攜帶 fields，語法上也未限制 fields 的資料型別。
