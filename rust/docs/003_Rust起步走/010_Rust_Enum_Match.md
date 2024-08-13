@@ -194,7 +194,7 @@ __Pattern matching Syntax__
 * => 用來引出後續該執行的 Statement 或 Expression  
 * 每個 Matching 後應該以逗號結尾做分隔  
 * Patterns 必須盡舉  
-* 無法盡舉所有 Patterns 可以以 _ 來代替剩餘可能性，並以 \(\)單元數值來代表不做任何事情  
+* 無法盡舉所有 Patterns 可以以 \_ 或 other 來代替剩餘可能性，並以 \(\)單元數值來代表不做任何事情  
 
 * 下面範例示範: Pattern Matching，當符合指定 Pattern 時執行特定動作。  
 __match example__
@@ -255,9 +255,39 @@ pub fn match_exercise() {
 ```
 
 * 下面範例示範: Pattern Matching 無法盡舉時的處理方式
-> 
+
+> Pattern Matching 並未限制只能用 enum，其他 數字、literal 等也行。但卻會有盡舉的問題。  
+>  
+> 解決方式為 catch all:  
+> Catch All 分為兩種情境(兩種 placeholders):  
+>> underscore 下畫線 \_ : 不在乎傳入參數後續使用時，可以使用 underscore 搭配單元數值 \(\) 使用。    
+>> other : 以 other 代替未列舉出的其他任一配動情境。other 可直接想成是傳入參數的臨時變數。實測結果，以其他字眼代替也可達到目的。  
+>> 注意: 須注意的是因為 Pattern Matching 是依序向下比對，因此 \_ 或 other 都需是最後一個 Pattern。  
+
 __match example: catch all__
 
 ```rust
+pub fn catch_all_exercise(){
+    let choice = "1";
 
+    match  choice {
+        "NA" => description(choice),
+        "ND" => description(choice),
+        "N" => description(choice),
+        "R" => description(choice),
+        "Z" => description(choice),
+
+        _plachholder => selected(choice),
+    }
+    
+    //Answer: 1
+}
+
+
+fn description(choice: &str){
+    print!("Force Single: {} ", choice )
+}
+fn selected(choice: &str){
+    print!("Answer: {} ", choice )
+}
 ```
