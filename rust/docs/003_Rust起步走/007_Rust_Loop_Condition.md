@@ -278,6 +278,63 @@ fn rand_num() -> i32 {
 ##　Pattern match: 類似其他語言的 switch/case 分支結構 <span id="matching">&nbsp;</span>
 * [Rust Enum and Match Pattern](./Rust_Enum_Match#switch_case)
 
+__match example__
+
+```rust
+enum QuestionType {
+    DVG(u32),
+    Multiple(Vec<u32>),
+    FillIn(String),
+}
+
+fn fetch_answer(question: QuestionType) -> String {
+    match question {
+        QuestionType::DVG(dvg) => {
+            return extract_dvg_answer(dvg);
+        } 
+
+        QuestionType::Multiple(multi) => {
+            return extract_multi_answer(multi);
+        }, //大括號封裝，所以逗號可省略
+        
+        QuestionType::FillIn(fillin) => {
+            return extract_fillin_answer(fillin);
+        }
+    }
+}
+
+fn extract_dvg_answer(dvganswer: u32) -> String {
+    return dvganswer.clone().to_string();
+}
+
+fn extract_fillin_answer(fillin: String) -> String {
+    return fillin;
+}
+
+fn extract_multi_answer(multi: Vec<u32>) -> String {
+    let mut combine = "".to_owned();
+    for item in multi {
+        combine.push_str(&";".to_owned());
+        combine.push_str(&item.to_string());
+    }
+    return combine;
+}
+
+pub fn match_exercise() {
+    let dvg = QuestionType::DVG(10);
+    let multi = QuestionType::Multiple(vec![1, 3, 5]);
+    let fillin = QuestionType::FillIn("Hello, I'm Totem.".to_owned());
+    println!("-----");
+    println!("DVG answer is : {}", fetch_answer(dvg));
+    println!("Multiple answer is : {}", fetch_answer(multi));
+    println!("FillIn answer is : {}", fetch_answer(fillin));
+    
+    //DVG answer is : 10
+    //Multiple answer is : ;1;3;5
+    //FillIn answer is : Hello, I'm Totem.
+}
+```
+
 
 ## If let condition <span id="if_let">&nbsp;</span>
 > 若讓 <span style={{color: '#FF1100'}}>**matching condition**</span> 成真則做後續動作。  

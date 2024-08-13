@@ -106,7 +106,7 @@ pub fn fetch_enum_field_value() {
 >  
 > 簡單的說便是: Option 這個結構(struct/type)有 Some 與 None 這兩種變體(Variants)。  
 >> 因此可以利用 Option 加上定義泛型成員的方式來定義有能為空值的變數的型別。  
->> 當變數有值時: 以 Some<type> 封裝回傳值  
+>> 當變數有值時: 以 Some<type\> 封裝回傳值  
 >> 當變數缺值時: 則直接給予 None  
 >> 注意: <span style={{color: '#FF1100'}}>** Some 的 value 只能取出一次**</span>，取出後即歸還記憶體。  
 
@@ -172,10 +172,8 @@ pub fn option_exercise_error_moved_value(){
 ```
 
 ## Enum and Match Pattern/Switch Case <span id="switch_case">&nbsp;</span>
-這邊也要寫摘要
->> [Rust enum](./Rust_Enum_Match#switch_case)  
->> [Rust Pattern Matching](./Rust_Loop_Condition#matching)  
-Pattern matching 在 Java 中稱為 Switch Case，整體概念相同，使用上有一些小出入。
+
+> Pattern matching 在 Java 中稱為 Switch Case，整體概念相同，使用上有一些小出入。
 
 > 先說明 Rust 中的 Patterns 限制:  
 >> Patterns 可以是 字面量、變數名、enum、萬用字元\(佔位符\)。   
