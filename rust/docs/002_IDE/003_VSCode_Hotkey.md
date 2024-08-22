@@ -16,3 +16,9 @@ keywords: [Rust,VS_Code]
 | delete line | Ctrl + x |
 | jump to implementation | F12 |
 
+# 其他操作
+* Organize imports:
+  * 點小燈泡 > Remove all the unused imports
+  * 點小燈泡 > Expand glob import
+  * 點小燈泡 > Remove the whole 'use' item
+

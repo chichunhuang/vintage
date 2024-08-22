@@ -3,7 +3,6 @@ title: Rust 列舉與模式配對
 description: Rust Enum and Pattern Matching
 keywords: [Rust,enum,Pattern_Matching]
 ---
-<span id="Rust_Pattern_Match">&nbsp;</span>
 
 # Rust Enum and Pattern Matching<span id="matching">&nbsp;</span>
 > Java 中有 enum 這個特殊關鍵字，用來建立一系列同型別的 static instances。  
