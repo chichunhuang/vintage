@@ -19,7 +19,7 @@ keywords: [Rust, Module System]
 | use | 將指定 module 引用時所需的指令 | 將指定 module 路徑所關聯的 module 引入\(import\)作用域<br/>或用來建立 module path 的捷徑時使用 |
 | as | 模組設別名時關鍵字 | 當引用到同名不同模組時，取別名時使用 |
 | pub | 公開 | public 讓指定項目動外公開 |
-| glob | global 全域運算子 |  |
+| glob | global 全域運算子 * | use 時可以用 wildcard 引用所有 public 項目 |
 
 
 ## Package 套件
@@ -69,6 +69,7 @@ __Rust Package 慣例結構__
 >> 1. [實作位置](#impl) : 就是相依的 rs 檔實際位置。    
 >> 1. [模組宣告\(註冊\)](#declare) : 需要告知 rust compiler 自行開發的 modules 所在位置。分為[新式](#declare_new)與[舊式](#declare_old)宣告。    
 >> 1. [模組引用](#import) : 程式開發了，Compiler 也知道程式的位置了。接下來就是如何使用它。  
+>> 1. [lib 引用](#import_lib) : 專案管理下分拆的 lib crate 引用方式。  
 
 ### __實作位置__ <span id="impl">&nbsp;</span>
 > 與 Java 不同，javac 會自行依據 source folder 的資料夾結構遍歷當中所有檔案進行 compile。  
@@ -283,9 +284,8 @@ fn main() {
 }
 ```
 
-### __lib crate 引用__ 
-> 關鍵字 
->> __<span style={{color: '#0044FF'}}> extern crate </span>__
+### __lib crate 引用__ <span id="import_lib">&nbsp;</span>
+> 關鍵字 : __<span style={{color: '#0044FF'}}> extern crate </span>__
 
 __引用 lib crate 語法 1__  
 * crate_name 預設為 package name \(專案名稱\)
