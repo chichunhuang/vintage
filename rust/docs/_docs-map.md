@@ -20,7 +20,6 @@ sidebar_position: 1
 * [Rust 函式 - Rust Functions](/docs/Rust起步走/Rust_Function)
 * [Rust 列舉與模式配對 - Rust Enum and Pattern Matching](/docs/Rust起步走/Rust_Enum_Match)
 * [Rust 參考與借用 - References and Borrowing](/docs/Rust起步走/Rust_References_Borrowing)
-* [Rust 常用集合 - Rust Collections](/docs/Rust起步走/Rust_Collections)
 * [Rust 所有權 - Ownership 記憶體所有權](/docs/Rust起步走/Rust_Ownership)
 * [Rust 變數 - Rust Variables](/docs/Rust起步走/Rust_Variable)
 * [Rust 資料型別 - Rust Data Type](/docs/Rust起步走/Rust_Data_Type)
@@ -28,6 +27,5 @@ sidebar_position: 1
 * [Rust_Data_Type_String.md](/docs/Rust起步走/Rust_Data_Type_String)
 * [Rust_Data_Type_Vctor.md](/docs/Rust起步走/Rust_Data_Type_Vctor)
 ## 004_模組套件與Crate
-* [Rust 內部 Module - Rust Nested Module](/docs/模組套件與Crate/Rust_Nested_Module)
 * [Rust 模組系統 - Rust Module Systems](/docs/模組套件與Crate/Rust_Module_System)
 
