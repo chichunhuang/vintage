@@ -57,7 +57,7 @@ __Ownership Example__
 記憶體回收機制，與記憶體分配方式。
 1. 變數的 pointer 可以被搬移給其他新變數。  
 (* 註: 這邊稱作搬移 move，而非 copy。因為舊變數會失去 pointer，變成無效的變數)
-2. 舊變數 pointer 被 複製後，會馬上被 drop。亦即舊變數失效。  
+2. 舊變數 pointer 被搬移後，會馬上被 drop。亦即舊變數失效。  
 (* 避免同一塊記憶體 被釋放多次)
 
 
@@ -72,9 +72,7 @@ Rust way:
     - todo: 確認是否所有原生 sdk 型別都有此 fun, ref ch5
     - clone : copy stack 上的 pointer，and copy heap 上的 真實資料
 
-
-#Copy and Trait copy
-## (primitive type)變數拷貝  
+## (Primitive Type)變數拷貝  
 * Rust 因為 資料與 pointer 都在 stack 上，可以直接複製使用。  
 * Primitive type: 因為有實作 Copy 特徵，當變數在賦值給其他變數後仍然會是有效的。  
 * ex: u32, bool , f64, char 等  

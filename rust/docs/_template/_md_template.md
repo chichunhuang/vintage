@@ -21,11 +21,13 @@ keywords: [Rust,Cargo, describing, the main topics]
 🡸 🡺 🡹 🡻 🡼 🡽 🡾 🡿   
 🢀 🢂 🢁 🢃 🢄 🢅 🢆 🢇  
 
-🖍️   
+   
 ➡️ 🔝 🔄  
 ⬅️ ⬅️ ↔️ ⬆️ ⬇️ ↕️  ↩️ ↪️   
 
-
+## 
+🖱️
+🖍️
 
 # image: a thumbnail image to be shown in social media cards
 

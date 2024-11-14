@@ -14,7 +14,7 @@ keywords: [Rust,References Borrowing]
 
 * 主體相關關鍵字
     * 參考 reference  
-    * 借用 borrowing: 不獲取所有權來使用參考  
+    * 借用 borrowing **&** , 不獲取所有權來使用參考  
     * 作用域 scope  
     * 所有權 ownership  
     * &, *
@@ -22,7 +22,7 @@ keywords: [Rust,References Borrowing]
 > 重點觀念摘要:  
 >> Instance 的 Variable 若當 argument pass 給函數後，  
 >> 預設所有權會一併傳給 Function，因而造成原先變數失效。  
->> 若 Variable 想保留所有權，則可以借出 reference 給 Function。  
+>> 若__原 Variable 想保留所有權__，則可以借出 reference 給 Function \(以 <span style={{color: '#0044FF'}}> **&** </span> 修飾\)。  
 >> 對 Function 來說便是參考借用 (References Borrowing)，   
 >> 當 Function 借來的參考離開作用域後，因為 Function 沒有所有權，所以記憶體不會被釋放掉。  
 >> 此時 argument 要加上 & 修飾，用來表達僅是借用。  
@@ -32,7 +32,7 @@ keywords: [Rust,References Borrowing]
 
 
 ## 函數借用變數參考
-* count_length_borrow 只借用。
+* count_length_borrow 只借用。以 <span style={{color: '#0044FF'}}> **&** </span> 修飾變數。
 * count_length 會搶走所有權，所以 borrow_example_clone 會拋出錯誤。 
 
 ```rust

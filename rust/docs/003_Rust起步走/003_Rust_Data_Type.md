@@ -95,7 +95,7 @@ println!("Main Dish = {main_dish}");
 
 
 ## Vector 向量 <span id="rust_vector">&nbsp;</span>
-> **有許可變長度，同型別元素的儲存元件**  
+> **允許可變長度，同型別元素的儲存元件**  
 * 基本建構方式  
 * 使用巨集快速建構  
 * 自 Vector 取值  
