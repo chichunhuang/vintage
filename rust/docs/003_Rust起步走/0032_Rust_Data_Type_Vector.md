@@ -127,7 +127,7 @@ for (index, element) in vec.enumerate() {
 
 ### DSL: Java Collection 中的 stream
 * vectorA.iter().map(|x| /* do something here */)  
-* __vec.into_iter()__ : alloc::vec::into_iter::IntoIter<T>   
+* __vec.into_iter()__ : alloc::vec::into_iter::IntoIter\<T\>   
 * 跟 Java stream 相同，這邊的動作具 Lazy 特性   
 
 ```rust
