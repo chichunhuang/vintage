@@ -14,7 +14,7 @@ window.addEventListener("load", function () {
       dismiss: "Accept",
       deny: "Reject",
       link: "More Information",
-      href: "/docs/PrivacyPolicy_Eng" // 隱私政策連結
+      href: "/docs/GDPR/PrivacyPolicy_Eng" // 隱私政策連結
     },
     onInitialise: function (status) {
       if (status === "allow") {
